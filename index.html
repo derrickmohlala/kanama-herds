@@ -14,40 +14,70 @@
     :root{--green:#1b4332;--beige:#f9f7f3;--gold:#d4af37;--gold-darker:#b7950b;--text:#333;--card-border:#ddd;}
     *{box-sizing:border-box;}
     body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);line-height:1.6;scroll-behavior:smooth;background:#fff;}
+
+    /* Delivery Banner */
     .banner{background:var(--gold);color:var(--green);text-align:center;padding:8px 12px;font-weight:600;font-size:.95rem;position:sticky;top:0;z-index:1200;}
-    nav{background:var(--green);padding:12px;position:sticky;top:32px;z-index:1000;}
+
+    /* Navigation */
+    nav{background:var(--green);padding:12px;position:sticky;top:40px;z-index:1100;}
     nav .nav-inner{max-width:1100px;margin:0 auto;position:relative;display:flex;align-items:center;justify-content:center;}
     nav .nav-links{display:flex;justify-content:center;gap:20px;}
     nav a{color:#fff;text-decoration:none;font-weight:600;}
     nav a:hover{text-decoration:underline;}
+
+    /* Hamburger */
     .hamburger{display:none;flex-direction:column;cursor:pointer;position:absolute;right:0;top:0;height:100%;justify-content:center;padding-right:4px;}
     .hamburger span{height:3px;width:26px;background:#fff;margin:3px 0;border-radius:2px;}
-    @media(max-width:768px){nav .nav-links{display:none;flex-direction:column;background:var(--green);text-align:center;padding:10px 0;gap:12px;}nav .nav-links.active{display:flex;}.hamburger{display:flex;}}
+    @media(max-width:768px){
+      nav .nav-links{display:none;flex-direction:column;background:var(--green);text-align:center;padding:10px 0;gap:12px;}
+      nav .nav-links.active{display:flex;}
+      .hamburger{display:flex;}
+    }
+
+    /* Header */
     header{background:url('https://cdn.pixabay.com/photo/2017/08/05/21/04/cow-2597452_1280.jpg') center/cover no-repeat;position:relative;color:#fff;}
     header .overlay{background:rgba(0,0,0,0.45);padding:80px 20px;text-align:center;}
     header h1{font-size:3rem;margin:0;text-transform:uppercase;letter-spacing:3px;font-weight:700;}
     header p{font-size:1.2rem;margin-top:15px;color:#f5f5dc;}
     @media(max-width:768px){header h1{font-size:2.2rem;}header p{font-size:1rem;}}
+
+    /* Sections */
     section{padding:50px 20px;max-width:1100px;margin:auto;}
     .alt{background:var(--beige);}
     h2{font-weight:700;color:var(--green);margin-bottom:20px;text-align:center;}
+
+    /* Buttons */
     .btn{display:inline-block;padding:12px 25px;margin-top:15px;background:var(--gold);color:var(--green);border-radius:8px;text-decoration:none;font-weight:600;transition:background .3s,color .3s,transform .1s;}
     .btn:hover{background:var(--gold-darker);color:#fff;transform:translateY(-1px);}
+
+    /* Product Grid */
     .product-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:20px;}
     .product{flex:1 1 280px;border:1px solid var(--card-border);border-radius:12px;padding:15px;text-align:center;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.08);transition:transform .3s;}
     .product:hover{transform:translateY(-6px);}
     .product img{width:100%;border-radius:8px;height:220px;object-fit:cover;}
     .delivery-info{background:var(--beige);border-left:6px solid var(--gold);padding:15px;margin-top:20px;font-weight:600;}
+
+    /* Testimonials */
     .testimonial-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
     .testimonial{flex:1 1 280px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 6px rgba(0,0,0,.08);font-style:italic;border:1px solid var(--card-border);}
+
+    /* FAQ */
     .faq-item{margin-bottom:15px;}
     .faq-question{cursor:pointer;background:var(--green);color:#fff;padding:12px 14px;border-radius:8px;font-weight:600;}
     .faq-answer{display:none;padding:12px 14px;background:var(--beige);border-left:4px solid var(--gold);border-radius:8px;margin-top:8px;}
+
+    /* Founders list */
     .founders{list-style:none;padding:0;margin:12px 0 0 0;display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:center;}
     .founders li{background:#fff;border:1px solid var(--card-border);border-radius:20px;padding:6px 12px;box-shadow:0 1px 3px rgba(0,0,0,.06);font-weight:600;color:var(--green);}
+
+    /* Banking Card */
     .bank-card{background:var(--gold);color:var(--green);padding:20px;margin-top:20px;border-radius:12px;box-shadow:0 3px 8px rgba(0,0,0,.15);font-weight:600;max-width:420px;margin-left:auto;margin-right:auto;text-align:center;}
     .bank-card h3{margin:0 0 10px 0;font-size:1.2rem;}
+
+    /* Footer */
     footer{background:var(--green);color:#f5f5dc;text-align:center;padding:24px 20px;margin-top:40px;}
+
+    /* WhatsApp Floating Button */
     .whatsapp-float{position:fixed;width:60px;height:60px;bottom:20px;right:20px;background:#25D366;border-radius:50%;text-align:center;box-shadow:2px 2px 5px rgba(0,0,0,.3);z-index:1000;display:flex;align-items:center;justify-content:center;transition:transform .2s;}
     .whatsapp-float:hover{transform:scale(1.1);}
     .whatsapp-float img{width:35px;height:35px;}
@@ -76,53 +106,23 @@
   </header>
   <section id="buy">
     <h2>Buy Cattle</h2>
-    <p style="text-align:center; max-width:850px; margin:0 auto;">
-      We supply Nguni, Bonsmara, and Brahman cattle for farmers, families, and lobola ceremonies.
-    </p>
+    <p style="text-align:center; max-width:850px; margin:0 auto;">We supply Nguni, Bonsmara, and Brahman cattle for farmers, families, and lobola ceremonies.</p>
     <div class="delivery-info">🚚 Delivery Fees: Gauteng fixed at R500 • Nationwide variable depending on distance</div>
     <div class="product-grid">
-      <div class="product">
-        <img src="images/nguni.jpg" alt="Nguni Cow" />
-        <h3>Nguni</h3>
-        <p>Weight: 250kg</p>
-        <p>Price: R3,500</p>
-        <a class="btn" href="https://wa.me/27614548601?text=I%20want%20to%20order%20a%20Nguni%20cow">Order via WhatsApp</a>
-      </div>
-      <div class="product">
-        <img src="images/bonsmara.jpg" alt="Bonsmara Cow" />
-        <h3>Bonsmara</h3>
-        <p>Weight: 300kg</p>
-        <p>Price: R4,200</p>
-        <a class="btn" href="https://wa.me/27614548601?text=I%20want%20to%20order%20a%20Bonsmara%20cow">Order via WhatsApp</a>
-      </div>
-      <div class="product">
-        <img src="images/brahman.jpg" alt="Brahman Cow" />
-        <h3>Brahman</h3>
-        <p>Weight: 320kg</p>
-        <p>Price: R4,500</p>
-        <a class="btn" href="https://wa.me/27614548601?text=I%20want%20to%20order%20a%20Brahman%20cow">Order via WhatsApp</a>
-      </div>
+      <div class="product"><img src="images/nguni.jpg" alt="Nguni Cow" /><h3>Nguni</h3><p>Weight: 250kg</p><p>Price: R3,500</p><a class="btn" href="https://wa.me/27614548601?text=I%20want%20to%20order%20a%20Nguni%20cow">Order via WhatsApp</a></div>
+      <div class="product"><img src="images/bonsmara.jpg" alt="Bonsmara Cow" /><h3>Bonsmara</h3><p>Weight: 300kg</p><p>Price: R4,200</p><a class="btn" href="https://wa.me/27614548601?text=I%20want%20to%20order%20a%20Bonsmara%20cow">Order via WhatsApp</a></div>
+      <div class="product"><img src="images/brahman.jpg" alt="Brahman Cow" /><h3>Brahman</h3><p>Weight: 320kg</p><p>Price: R4,500</p><a class="btn" href="https://wa.me/27614548601?text=I%20want%20to%20order%20a%20Brahman%20cow">Order via WhatsApp</a></div>
     </div>
   </section>
   <section id="services" class="alt">
     <h2>Farming Services</h2>
-    <p style="text-align:center; max-width:850px; margin:0 auto;">
-      New to farming? Rent our ready-made kraals, bring your cows, and we’ll handle feeding, veterinary care, and security so you can focus on growing your herd.
-    </p>
-    <div style="text-align:center;">
-      <a class="btn" href="mailto:derrickmohlala@gmail.com">Email Us</a>
-    </div>
+    <p style="text-align:center; max-width:850px; margin:0 auto;">New to farming? Rent our ready-made kraals, bring your cows, and we’ll handle feeding, veterinary care, and security so you can focus on growing your herd.</p>
+    <div style="text-align:center;"><a class="btn" href="mailto:derrickmohlala@gmail.com">Email Us</a></div>
   </section>
   <section id="about">
     <h2>About Us</h2>
-    <p style="text-align:center; max-width:900px; margin:0 auto;">
-      <strong>Kanama Herds</strong> was founded by five <strong>South African-born</strong> friends who share a deep respect for cattle and community.
-      Our journey began when one of us struggled to source a quality cow in time for a lobola ceremony — a moment that inspired us to build a
-      reliable, modern cattle supply service that blends tradition with efficiency.
-    </p>
-    <ul class="founders">
-      <li>Thabiso</li><li>Mpho</li><li>Derrick</li><li>Prince</li><li>John</li>
-    </ul>
+    <p style="text-align:center; max-width:900px; margin:0 auto;"><strong>Kanama Herds</strong> was founded by five <strong>South African-born</strong> friends who share a deep respect for cattle and community. Our journey began when one of us struggled to source a quality cow in time for a lobola ceremony — a moment that inspired us to build a reliable, modern cattle supply service that blends tradition with efficiency.</p>
+    <ul class="founders"><li>Thabiso</li><li>Mpho</li><li>Derrick</li><li>Prince</li><li>John</li></ul>
   </section>
   <section id="testimonials" class="alt">
     <h2>What Farmers Say</h2>
@@ -144,15 +144,10 @@
     <p style="text-align:center;">📞 WhatsApp: <a href="https://wa.me/27614548601">061 454 8601</a></p>
     <p style="text-align:center;">📧 Email: <a href="mailto:derrickmohlala@gmail.com">derrickmohlala@gmail.com</a></p>
     <p style="text-align:center;">📍 Based in Gauteng, delivering nationwide.</p>
-    <div class="bank-card">
-      <h3>💳 Banking Details</h3>
-      Bank: TymeBank<br/>Account Number: 5101 9247 923<br/>Account Type: Cheque
-    </div>
+    <div class="bank-card"><h3>💳 Banking Details</h3>Bank: TymeBank<br/>Account Number: 5101 9247 923<br/>Account Type: Cheque</div>
   </section>
   <footer><p>&copy; 2025 Kanama Herds. All Rights Reserved.</p></footer>
-  <a href="https://wa.me/27614548601?text=Hi%20Kanama%20Herds" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-  </a>
+  <a href="https://wa.me/27614548601?text=Hi%20Kanama%20Herds" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" /></a>
   <script>
     function toggleMenu(){document.querySelector('.nav-links').classList.toggle('active');}
     function closeMenu(){const links=document.querySelector('.nav-links');if(window.innerWidth<=768&&links.classList.contains('active'))links.classList.remove('active');}
