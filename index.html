@@ -3,111 +3,276 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kanama Herds</title>
+  <title>Buy Cattle South Africa | Bonsmara, Nguni, Brahman | Kanama Herds</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Kanama Herds sells and delivers Bonsmara, Nguni, and Brahman cattle. 7-day delivery in Gauteng, 1 month nationwide. Farming services available for young farmers.">
+  <meta name="keywords" content="buy cattle South Africa, Bonsmara cattle for sale, Nguni cattle for sale, Brahman cattle for sale, cattle farming services, rent kraal, buy cows Gauteng, lobola cattle South Africa, cattle suppliers, beef cattle South Africa">
+  <meta name="author" content="Kanama Herds">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:title" content="Kanama Herds – Buy Cattle in South Africa">
+  <meta property="og:description" content="Healthy, strong cattle delivered fast. 7 days in Gauteng, 1 month nationwide. Buy Bonsmara, Nguni, Brahman and more.">
+  <meta property="og:image" content="https://cdn.pixabay.com/photo/2021/04/27/12/53/cows-6200481_1280.jpg">
+  <meta property="og:url" content="https://kanama-herds.netlify.app">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kanama Herds – Buy Cattle in South Africa">
+  <meta name="twitter:description" content="Healthy, strong cattle delivered fast. 7 days in Gauteng, 1 month nationwide.">
+  <meta name="twitter:image" content="https://cdn.pixabay.com/photo/2021/04/27/12/53/cows-6200481_1280.jpg">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
-    header {
-      background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-4.0.3&q=80&auto=format&fit=crop&w=1600') center/cover no-repeat;
-      height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 3rem;
-      background: rgba(0,0,0,0.5);
-      padding: 20px;
-      border-radius: 10px;
-    }
+    body { margin:0; font-family: Arial, sans-serif; color:#333; line-height:1.6; scroll-behavior: smooth; }
+
+    /* Sticky Nav */
     nav {
-      background: #2c3e50;
-      color: white;
-      padding: 10px;
-      text-align: center;
+      background:#2c3e50;
+      padding:10px;
+      text-align:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
     }
     nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
+      color:white;
+      margin:0 15px;
+      text-decoration:none;
+      font-weight:bold;
+      padding:5px 10px;
     }
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+    nav a.active {
+      background:#ff9800;
+      border-radius:5px;
     }
+    nav a:hover {
+      text-decoration:underline;
+    }
+
+    header { background:#27ae60; color:white; padding:80px 20px; text-align:center; }
+    header h1 { font-size:3rem; margin:0; }
+    header p { font-size:1.3rem; margin-top:10px; }
+
+    section { padding:40px 20px; max-width:1000px; margin:auto; }
+
     .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      margin-top: 20px;
-      background: #27ae60;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
+      display:inline-block;
+      padding:12px 25px;
+      margin-top:15px;
+      background:#ff9800;
+      color:white;
+      border-radius:5px;
+      text-decoration:none;
+      font-weight:bold;
+      transition: background 0.3s;
     }
+    .btn:hover {
+      background:#e68900;
+    }
+
+    .product-grid {
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      justify-content:center;
+      margin-top:20px;
+    }
+    .product {
+      flex:1 1 220px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      padding:15px;
+      text-align:center;
+      background:white;
+      transition: transform 0.3s;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+    }
+    .product img {
+      width:100%;
+      border-radius:8px;
+      height:200px;
+      object-fit:cover;
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      justify-content:center;
+      margin-top:20px;
+    }
+    .testimonial {
+      flex:1 1 250px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      padding:20px;
+      background:#f9f9f9;
+      font-style:italic;
+    }
+
     footer {
-      background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 20px;
+      background:#2c3e50;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position:fixed;
+      width:60px;
+      height:60px;
+      bottom:20px;
+      right:20px;
+      background:#25D366;
+      color:white;
+      border-radius:50%;
+      text-align:center;
+      font-size:30px;
+      box-shadow:2px 2px 5px rgba(0,0,0,0.3);
+      z-index:1000;
+    }
+    .whatsapp-float i {
+      margin-top:15px;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#buy">Buy Now</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
 
-  <header id="home">
-    <h1>Kanama Herds – Delivered to You</h1>
-  </header>
+<nav>
+  <a href="#buy">Buy Cattle</a>
+  <a href="#about">About Us</a>
+  <a href="#services">Farming Services</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>
-      At Kanama Herds, we pride ourselves on reliability and quality. 
-      When you buy cattle from us, we deliver <strong>within 7 days in Gauteng</strong> 
-      and <strong>within a month nationwide</strong>.  
-    </p>
-  </section>
+<header>
+  <h1>Buy Cattle in South Africa – Kanama Herds</h1>
+  <p>Healthy, strong Bonsmara, Nguni, and Brahman cattle. 7 days in Gauteng, 1 month nationwide.</p>
+</header>
 
-  <section id="buy">
-    <h2>Buy Cattle</h2>
-    <p>
-      Looking to grow your herd? We make cattle buying simple, fast, and trustworthy.  
-    </p>
-    <a class="btn" href="https://wa.me/27614548601?text=Hi%20Kanama%20Herds,%20I’d%20like%20to%20order%20cattle">Order on WhatsApp</a>
-  </section>
+<!-- BUY CATTLE SECTION -->
+<section id="buy">
+  <h2>Buy Bonsmara, Nguni & Brahman Cattle</h2>
+  <p>Looking to buy cattle in South Africa? Kanama Herds supplies healthy Bonsmara, Nguni, and Brahman cows for farmers, families, and lobola ceremonies. Order today via WhatsApp.</p>
 
-  <section id="services">
-    <h2>Farming Services</h2>
-    <p>
-      Are you a young farmer starting out? With Kanama Herds, you can rent our ready-made 
-      facilities and focus on growing. You buy the cattle, and we take care of the rest — 
-      feeding, space, and management.  
-    </p>
-  </section>
+  <div class="product-grid">
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2021/04/27/12/53/cows-6200481_1280.jpg" alt="Bonsmara Cow for Sale">
+      <h3>Bonsmara</h3>
+      <p>Weight: 300kg</p>
+      <p>Price: R4,200</p>
+      <a class="btn" href="https://wa.me/27614548601?text=Hi%20Kanama%20Herds,%20I’d%20like%20to%20buy%20a%20Bonsmara%20cow">Order via WhatsApp</a>
+    </div>
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2018/07/28/20/34/cattle-3560369_1280.jpg" alt="Nguni Cow for Sale">
+      <h3>Nguni</h3>
+      <p>Weight: 250kg</p>
+      <p>Price: R3,500</p>
+      <a class="btn" href="https://wa.me/27614548601?text=Hi%20Kanama%20Herds,%20I’d%20like%20to%20buy%20a%20Nguni%20cow">Order via WhatsApp</a>
+    </div>
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2020/04/12/22/54/brahman-5044553_1280.jpg" alt="Brahman Cow for Sale">
+      <h3>Brahman</h3>
+      <p>Weight: 320kg</p>
+      <p>Price: R4,500</p>
+      <a class="btn" href="https://wa.me/27614548601?text=Hi%20Kanama%20Herds,%20I’d%20like%20to%20buy%20a%20Brahman%20cow">Order via WhatsApp</a>
+    </div>
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2017/02/10/21/13/cow-2056589_1280.jpg" alt="Nguni Cow Variant for Sale">
+      <h3>Nguni (Variant)</h3>
+      <p>Weight: 260kg</p>
+      <p>Price: R3,600</p>
+      <a class="btn" href="https://wa.me/27614548601?text=Hi%20Kanama%20Herds,%20I’d%20like%20to%20buy%20this%20Nguni%20cow">Order via WhatsApp</a>
+    </div>
+  </div>
+</section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>📞 WhatsApp: <a href="https://wa.me/27614548601">061 454 8601</a></p>
-    <p>📍 Based in Gauteng, delivering nationwide.</p>
-  </section>
+<!-- ABOUT US SECTION -->
+<section id="about">
+  <h2>About Kanama Herds</h2>
+  <p>
+    Kanama Herds is the story of five friends who came together to build the most efficient cattle farming business in South Africa. 
+    The spark came when one of us was preparing for his wedding lobola negotiations and we couldn’t find a quality cow in time. 
+    That challenge turned into an opportunity: we decided to create a business dedicated to delivering the highest quality cattle, 
+    with unmatched speed and reliability. Today, Kanama Herds proudly serves farmers, families, and communities with trust, efficiency, 
+    and care in every delivery.
+  </p>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Kanama Herds. All rights reserved.</p>
-  </footer>
+<!-- FARMING SERVICES SECTION -->
+<section id="services">
+  <h2>Cattle Farming Services for Young Farmers</h2>
+  <p>
+    Are you a young farmer starting out? Rent our ready-made kraals and bring your cows — 
+    we’ll handle feeding, veterinary care, and security so you can focus on growing your herd. 
+  </p>
+  <a class="btn" href="mailto:derrickmohlala@gmail.com">Email Us</a>
+  <a class="btn" href="https://wa.me/27614548601?text=Hi%20Kanama%20Herds,%20I’m%20interested%20in%20your%20farming%20services">Chat on WhatsApp</a>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section id="testimonials">
+  <h2>What Farmers Say About Kanama Herds</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      "I needed cattle fast for a community event — Kanama Herds delivered within 5 days in Gauteng. 
+      Excellent service!" – *Thabo M.*
+    </div>
+    <div class="testimonial">
+      "As a first-time farmer, I didn’t know where to start. Renting their facilities made it so easy 
+      for me to grow my herd." – *Nomsa K.*
+    </div>
+    <div class="testimonial">
+      "Strong, healthy cattle and reliable delivery nationwide. Highly recommended!" – *Sipho R.*
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <h2>Contact Kanama Herds</h2>
+  <p>📞 WhatsApp: <a href="https://wa.me/27614548601">061 454 8601</a></p>
+  <p>📧 Email: <a href="mailto:derrickmohlala@gmail.com">derrickmohlala@gmail.com</a></p>
+  <p>📍 Based in Gauteng, delivering cattle nationwide across South Africa.</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Kanama Herds. All Rights Reserved.</p>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/27614548601?text=Hi%20Kanama%20Herds" class="whatsapp-float" target="_blank">
+  💬
+</a>
+
+<script>
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 60;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
