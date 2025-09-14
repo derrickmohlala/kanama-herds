@@ -9,14 +9,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body { margin:0; font-family: 'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
+    :root{
+      --green:#1b4332;
+      --beige:#f9f7f3;
+      --gold:#d4af37;
+      --gold-darker:#b7950b;
+      --text:#333;
+      --card-border:#ddd;
+    }
+    *{box-sizing:border-box;}
+    body { margin:0; font-family: 'Poppins', sans-serif; color:var(--text); line-height:1.6; scroll-behavior:smooth; background:white; }
 
     /* Delivery Banner */
     .banner {
-      background:#d4af37; /* gold */
-      color:#1b4332; /* deep green */
+      background:var(--gold);
+      color:var(--green);
       text-align:center;
-      padding:8px;
+      padding:8px 12px;
       font-weight:600;
       font-size:0.95rem;
       position:sticky;
@@ -26,7 +35,7 @@
 
     /* Navigation */
     nav {
-      background:#1b4332; /* dark earthy green */
+      background:var(--green);
       padding:12px;
       text-align:center;
       position:sticky;
@@ -43,7 +52,7 @@
 
     /* Header */
     header {
-      background:#1b4332;
+      background:var(--green);
       color:white;
       padding:70px 20px;
       text-align:center;
@@ -63,23 +72,23 @@
 
     /* Sections */
     section { padding:50px 20px; max-width:1100px; margin:auto; }
-    section:nth-child(even) { background:#f9f7f3; } /* alternating beige */
+    .alt { background:var(--beige); }
 
-    h2 { font-weight:700; color:#1b4332; margin-bottom:20px; }
+    h2 { font-weight:700; color:var(--green); margin-bottom:20px; }
 
     /* Buttons */
     .btn {
       display:inline-block;
       padding:12px 25px;
       margin-top:15px;
-      background:#d4af37;
-      color:#1b4332;
-      border-radius:5px;
+      background:var(--gold);
+      color:var(--green);
+      border-radius:8px;
       text-decoration:none;
       font-weight:600;
-      transition: background 0.3s;
+      transition: background 0.3s, color 0.3s, transform 0.1s;
     }
-    .btn:hover { background:#b7950b; color:white; }
+    .btn:hover { background:var(--gold-darker); color:white; transform:translateY(-1px); }
 
     /* Products */
     .product-grid {
@@ -91,15 +100,15 @@
     }
     .product {
       flex:1 1 280px;
-      border:1px solid #ddd;
-      border-radius:8px;
+      border:1px solid var(--card-border);
+      border-radius:12px;
       padding:15px;
       text-align:center;
       background:white;
-      box-shadow:0 3px 6px rgba(0,0,0,0.1);
+      box-shadow:0 3px 8px rgba(0,0,0,0.08);
       transition: transform 0.3s;
     }
-    .product:hover { transform: translateY(-5px); }
+    .product:hover { transform: translateY(-6px); }
     .product img {
       width:100%;
       border-radius:8px;
@@ -108,8 +117,8 @@
     }
 
     .delivery-info {
-      background:#f9f7f3;
-      border-left:5px solid #d4af37;
+      background:var(--beige);
+      border-left:6px solid var(--gold);
       padding:15px;
       margin-top:20px;
       font-weight:600;
@@ -125,37 +134,57 @@
     .testimonial {
       flex:1 1 280px;
       background:white;
-      border-radius:8px;
+      border-radius:12px;
       padding:20px;
-      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
       font-style:italic;
+      border:1px solid var(--card-border);
     }
 
     /* FAQ */
-    .faq-item {
-      margin-bottom:15px;
-    }
+    .faq-item { margin-bottom:15px; }
     .faq-question {
       cursor:pointer;
-      background:#1b4332;
+      background:var(--green);
       color:white;
-      padding:12px;
-      border-radius:5px;
+      padding:12px 14px;
+      border-radius:8px;
       font-weight:600;
     }
     .faq-answer {
       display:none;
-      padding:10px;
-      background:#f9f7f3;
-      border-left:3px solid #d4af37;
+      padding:12px 14px;
+      background:var(--beige);
+      border-left:4px solid var(--gold);
+      border-radius:8px;
+      margin-top:8px;
+    }
+
+    /* Founders list */
+    .founders{
+      list-style:none;
+      padding:0;
+      margin:12px 0 0 0;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 16px;
+    }
+    .founders li{
+      background:white;
+      border:1px solid var(--card-border);
+      border-radius:20px;
+      padding:6px 12px;
+      box-shadow:0 1px 3px rgba(0,0,0,0.06);
+      font-weight:600;
+      color:var(--green);
     }
 
     /* Footer */
     footer {
-      background:#1b4332;
+      background:var(--green);
       color:#f5f5dc;
       text-align:center;
-      padding:20px;
+      padding:24px 20px;
       margin-top:40px;
     }
 
@@ -182,8 +211,10 @@
 </head>
 <body>
 
+<!-- Sticky Delivery Banner -->
 <div class="banner">🚚 Gauteng Delivery R500 | Nationwide Variable</div>
 
+<!-- Sticky Nav -->
 <nav>
   <a href="#buy">Buy Cattle</a>
   <a href="#services">Farming Services</a>
@@ -193,11 +224,13 @@
   <a href="#contact">Contact</a>
 </nav>
 
+<!-- Header -->
 <header>
   <h1>Kanama Herds</h1>
   <p>Nguni • Bonsmara • Brahman – Premium South African Cattle Delivered to You</p>
 </header>
 
+<!-- BUY CATTLE -->
 <section id="buy">
   <h2>Buy Cattle</h2>
   <p>We supply Nguni, Bonsmara, and Brahman cattle for farmers, families, and lobola ceremonies.</p>
@@ -228,18 +261,28 @@
   </div>
 </section>
 
-<section id="services">
+<!-- SERVICES -->
+<section id="services" class="alt">
   <h2>Farming Services</h2>
   <p>New to farming? Rent our ready-made kraals, bring your cows, and we’ll handle feeding, veterinary care, and security so you can focus on growing your herd.</p>
   <a class="btn" href="mailto:derrickmohlala@gmail.com">Email Us</a>
 </section>
 
+<!-- ABOUT US (moved after Services) -->
 <section id="about">
   <h2>About Us</h2>
-  <p>Kanama Herds was founded by five South African-born friends: <strong>Thabiso, Mpho, Derrick, Prince, and John</strong>. Our journey began when one of us struggled to source a cow in time for a lobola ceremony. That challenge inspired us to build a business dedicated to reliable, high-quality cattle supply. Today, we combine tradition with modern efficiency to serve families, farmers, and communities across South Africa.</p>
+  <p><strong>Kanama Herds</strong> was founded by five <strong>South African-born</strong> friends who share a deep respect for cattle and community. Our journey began when one of us struggled to source a quality cow in time for a lobola ceremony — a moment that inspired us to build a reliable, modern cattle supply service that blends tradition with efficiency.</p>
+  <ul class="founders">
+    <li>Thabiso</li>
+    <li>Mpho</li>
+    <li>Derrick</li>
+    <li>Prince</li>
+    <li>John</li>
+  </ul>
 </section>
 
-<section id="testimonials">
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="alt">
   <h2>What Farmers Say</h2>
   <div class="testimonial-grid">
     <div class="testimonial">“Excellent service — I received my Bonsmara within 6 days in Gauteng. Healthy and strong!” – Thabo M.</div>
@@ -248,27 +291,29 @@
   </div>
 </section>
 
+<!-- FAQ -->
 <section id="faq">
   <h2>Frequently Asked Questions</h2>
   <div class="faq-item">
     <div class="faq-question">How does delivery work?</div>
-    <div class="faq-answer">Delivery in Gauteng is a fixed R500. Nationwide delivery varies by distance, but we guarantee arrival within 30 days.</div>
+    <div class="faq-answer">Delivery in Gauteng is a fixed R500. Nationwide delivery varies by distance, and we guarantee arrival within 30 days.</div>
   </div>
   <div class="faq-item">
     <div class="faq-question">How can I order?</div>
-    <div class="faq-answer">You can order directly through the website using the “Order via Email” button for each breed.</div>
+    <div class="faq-answer">Use the “Order via Email” button under each breed. We’ll confirm availability, delivery timing, and payment details.</div>
   </div>
   <div class="faq-item">
     <div class="faq-question">What payment methods do you accept?</div>
-    <div class="faq-answer">We accept EFT (bank transfer) and work with you to confirm details before delivery.</div>
+    <div class="faq-answer">We accept EFT (bank transfer). A detailed invoice is provided before delivery.</div>
   </div>
   <div class="faq-item">
     <div class="faq-question">Are the cattle vaccinated?</div>
-    <div class="faq-answer">Yes, all our cattle are vaccinated and certified healthy before delivery.</div>
+    <div class="faq-answer">Yes. All cattle are vaccinated and certified healthy prior to delivery.</div>
   </div>
 </section>
 
-<section id="contact">
+<!-- CONTACT -->
+<section id="contact" class="alt">
   <h2>Contact Us</h2>
   <p>📞 WhatsApp: <a href="https://wa.me/27614548601">061 454 8601</a></p>
   <p>📧 Email: <a href="mailto:derrickmohlala@gmail.com">derrickmohlala@gmail.com</a></p>
@@ -279,6 +324,7 @@
   <p>&copy; 2025 Kanama Herds. All Rights Reserved.</p>
 </footer>
 
+<!-- Floating WhatsApp -->
 <a href="https://wa.me/27614548601?text=Hi%20Kanama%20Herds" class="whatsapp-float" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
