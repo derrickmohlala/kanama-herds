@@ -60,7 +60,8 @@
       position:relative;
       display:flex;
       align-items:center;
-      justify-content:space-between;
+      justify-content:flex-start;
+      width:100%;
     }
     nav .nav-links{
       display: flex;
@@ -74,6 +75,7 @@
       position: static;
       display: inline-flex;
       align-items: center;
+      margin-right: 20px;
     }
     .logo img {
       height: 40px;
@@ -92,6 +94,7 @@
       position: static;
       gap: 8px;
       padding-right: 6px;
+      margin-left: auto;
     }
     .hamburger-bars span{height:4px;width:30px;background:#fff;margin:4px 0;border-radius:2px;display:block;}
     .hamburger-label{color:#fff;font-weight:600;font-size:1rem;}
@@ -106,7 +109,7 @@
       background:var(--beige);
       box-shadow:-2px 0 6px rgba(0,0,0,.3);
       transition:right 0.4s ease;
-      z-index:2000;
+      z-index:2200;
       padding:20px;
       display:flex;
       flex-direction:column;
