@@ -15,15 +15,37 @@
     *{box-sizing:border-box;}
     body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);line-height:1.6;scroll-behavior:smooth;background:#fff;}
 
-    /* Delivery Banner */
-    .banner{background:var(--gold);color:var(--green);text-align:center;padding:8px 12px;font-weight:600;font-size:.95rem;position:sticky;top:0;z-index:2000;}
+    /* Animated Banner (slower + spacing) */
+    .banner {
+      background: var(--gold);
+      color: var(--green);
+      font-weight: 600;
+      font-size: .95rem;
+      position: sticky;
+      top: 0;
+      z-index: 2000;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .banner span {
+      display: inline-block;
+      padding-left: 100%;
+      padding-right: 80px; /* extra space between repeats */
+      animation: scroll 20s linear infinite; /* slower animation */
+    }
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
 
     /* Navigation */
-    nav{background:var(--green);padding:20px 12px;position:sticky;top:32px;z-index:1100;}
+    nav{background:var(--green);padding:20px 12px;position:sticky;top:0;z-index:1100;}
     nav .nav-inner{max-width:1100px;margin:0 auto;position:relative;display:flex;align-items:center;justify-content:center;}
     nav .nav-links{display:flex;justify-content:center;gap:20px;}
     nav a{color:#fff;text-decoration:none;font-weight:600;}
     nav a:hover{text-decoration:underline;}
+    .logo{position:absolute;left:0;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;}
+    .logo img{height:50px;display:block;}
 
     /* Hamburger */
     .hamburger{display:none;flex-direction:row;align-items:center;cursor:pointer;position:absolute;right:0;top:50%;transform:translateY(-50%);gap:8px;padding-right:6px;}
@@ -77,14 +99,14 @@
       background:url('https://cdn.pixabay.com/photo/2017/08/05/21/04/cow-2597452_1280.jpg') center/cover no-repeat;
       position:relative;
       color:#fff;
-      min-height:40vh; /* Compact on desktop */
+      min-height:40vh; /* compact desktop */
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
     }
     @media(max-width:768px){
-      header{min-height:50vh;} /* Slimmer hero on mobile */
+      header{min-height:50vh;} /* slimmer mobile */
     }
     header::before{
       content:"";
@@ -94,11 +116,7 @@
       background:rgba(0,0,0,0.45);
       z-index:0;
     }
-    header .hero-text{
-      position:relative;
-      z-index:1;
-      padding:0 15px;
-    }
+    header .hero-text{position:relative;z-index:1;padding:0 15px;}
     header h1{font-size:2.5rem;margin:0 0 10px;text-transform:uppercase;font-weight:700;text-shadow:none;}
     header p{font-size:1.1rem;margin:0;color:#f5f5dc;}
     @media(max-width:768px){header h1{font-size:2rem;}header p{font-size:1rem;}}
@@ -145,10 +163,21 @@
     .whatsapp-float img{width:35px;height:35px;}
   </style>
 </head>
-<body>
-  <div class="banner">🚚 Gauteng Delivery R500 | Nationwide Variable</div>
+<body id="top">
+
+  <!-- Animated banner -->
+  <div class="banner">
+  <span>
+    🎉 Get 10% Off Your First Order! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    🎉 Get 10% Off Your First Order! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    🎉 Get 10% Off Your First Order!
+  </span>
+  </div>
+
+  <!-- Navigation -->
   <nav>
     <div class="nav-inner">
+      <a href="#top" class="logo"><img src="images/logo.png" alt="Kanama Herds Logo"></a>
       <div class="hamburger" onclick="toggleDrawer()">
         <div class="hamburger-bars"><span></span><span></span><span></span></div>
         <div class="hamburger-label">Menu</div>
@@ -176,6 +205,7 @@
   </div>
   <div class="overlay" id="overlay" onclick="toggleDrawer()"></div>
 
+  <!-- Hero -->
   <header>
     <div class="hero-text">
       <h1>Kanama Herds</h1>
@@ -183,29 +213,54 @@
     </div>
   </header>
 
+  <!-- Buy -->
   <section id="buy">
     <h2>Buy Cattle</h2>
     <p style="text-align:center; max-width:850px; margin:0 auto;">We supply Nguni, Bonsmara, and Brahman cattle for farmers, families, and lobola ceremonies.</p>
     <div class="delivery-info">🚚 Delivery Fees: Gauteng fixed at R500 • Nationwide variable depending on distance</div>
+
     <div class="product-grid">
-      <div class="product"><img src="images/nguni.jpg" alt="Nguni Cow" /><h3>Nguni</h3><p>Weight: 250kg</p><p>Price: R3,500</p><a class="btn" href="https://wa.me/27614548601?text=I%20want%20to%20order%20a%20Nguni%20cow">Order via WhatsApp</a></div>
-      <div class="product"><img src="images/bonsmara.jpg" alt="Bonsmara Cow" /><h3>Bonsmara</h3><p>Weight: 300kg</p><p>Price: R4,200</p><a class="btn" href="https://wa.me/27614548601?text=I%20want%20to%20order%20a%20Bonsmara%20cow">Order via WhatsApp</a></div>
-      <div class="product"><img src="images/brahman.jpg" alt="Brahman Cow" /><h3>Brahman</h3><p>Weight: 320kg</p><p>Price: R4,500</p><a class="btn" href="https://wa.me/27614548601?text=I%20want%20to%20order%20a%20Brahman%20cow">Order via WhatsApp</a></div>
+      <div class="product">
+        <img src="images/nguni.jpg" alt="Nguni Cow" />
+        <h3>Nguni</h3>
+        <p>Weight: 250kg</p>
+        <p>Price: R3,500</p>
+        <a class="btn" href="https://wa.me/27614548601?text=Hello%20Kanama%20Herds!%0A%0AI%27m%20interested%20in%20ordering%20a%20Nguni%20cow.%0A%0ACan%20you%20please%20give%20me%20more%20details%3F">Order via WhatsApp</a>
+      </div>
+
+      <div class="product">
+        <img src="images/bonsmara.jpg" alt="Bonsmara Cow" />
+        <h3>Bonsmara</h3>
+        <p>Weight: 300kg</p>
+        <p>Price: R4,200</p>
+        <a class="btn" href="https://wa.me/27614548601?text=Hello%20Kanama%20Herds!%0A%0AI%27d%20like%20to%20order%20a%20Bonsmara%20cow.%0A%0ACould%20you%20share%20the%20next%20steps%3F">Order via WhatsApp</a>
+      </div>
+
+      <div class="product">
+        <img src="images/brahman.jpg" alt="Brahman Cow" />
+        <h3>Brahman</h3>
+        <p>Weight: 320kg</p>
+        <p>Price: R4,500</p>
+        <a class="btn" href="https://wa.me/27614548601?text=Hello%20Kanama%20Herds!%0A%0AI%27m%20looking%20to%20order%20a%20Brahman%20cow.%0A%0ACan%20you%20please%20assist%3F">Order via WhatsApp</a>
+      </div>
     </div>
   </section>
 
+  <!-- Services -->
   <section id="services" class="alt">
     <h2>Farming Services</h2>
     <p style="text-align:center; max-width:850px; margin:0 auto;">New to farming? Rent our ready-made kraals, bring your cows, and we’ll handle feeding, veterinary care, and security so you can focus on growing your herd.</p>
     <div style="text-align:center;"><a class="btn" href="mailto:derrickmohlala@gmail.com">Email Us</a></div>
   </section>
 
+  <!-- About -->
   <section id="about">
     <h2>About Us</h2>
     <p style="text-align:center; max-width:900px; margin:0 auto;"><strong>Kanama Herds</strong> was founded by five <strong>South African-born</strong> friends who share a deep respect for cattle and community. Our journey began when one of us struggled to source a quality cow in time for a lobola ceremony — a moment that inspired us to build a reliable, modern cattle supply service that blends tradition with efficiency.</p>
     <ul class="founders"><li>Thabiso</li><li>Mpho</li><li>Derrick</li><li>Prince</li><li>John</li></ul>
   </section>
 
+  <!-- Testimonials -->
   <section id="testimonials" class="alt">
     <h2>What Farmers Say</h2>
     <div class="testimonial-grid">
@@ -215,24 +270,49 @@
     </div>
   </section>
 
+  <!-- FAQ -->
   <section id="faq">
     <h2>Frequently Asked Questions</h2>
-    <div class="faq-item"><div class="faq-question">How does delivery work?</div><div class="faq-answer">Delivery in Gauteng is a fixed R500. Nationwide delivery varies by distance, and we guarantee arrival within 30 days.</div></div>
-    <div class="faq-item"><div class="faq-question">How can I order?</div><div class="faq-answer">You can order directly via WhatsApp using the “Order via WhatsApp” button for each breed. Our team will confirm availability, delivery, and payment with you.</div></div>
-    <div class="faq-item"><div class="faq-question">What payment methods do you accept?</div><div class="faq-answer">We accept EFT (bank transfer). A detailed invoice is provided before delivery.</div></div>
-    <div class="faq-item"><div class="faq-question">Are the cattle vaccinated?</div><div class="faq-answer">Yes. All cattle are vaccinated and certified healthy prior to delivery.</div></div>
+    <div class="faq-item">
+      <div class="faq-question">How does delivery work?</div>
+      <div class="faq-answer">Delivery in Gauteng is a fixed R500. Nationwide delivery varies by distance, and we guarantee arrival within 30 days.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">How can I order?</div>
+      <div class="faq-answer">You can order directly via WhatsApp using the “Order via WhatsApp” button for each breed. Our team will confirm availability, delivery, and payment with you.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">What payment methods do you accept?</div>
+      <div class="faq-answer">We accept EFT (bank transfer). A detailed invoice is provided before delivery.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Are the cattle vaccinated?</div>
+      <div class="faq-answer">Yes. All cattle are vaccinated and certified healthy prior to delivery.</div>
+    </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="alt">
     <h2>Contact Us</h2>
     <p style="text-align:center;">📞 WhatsApp: <a href="https://wa.me/27614548601">061 454 8601</a></p>
     <p style="text-align:center;">📧 Email: <a href="mailto:derrickmohlala@gmail.com">derrickmohlala@gmail.com</a></p>
     <p style="text-align:center;">📍 Based in Gauteng, delivering nationwide.</p>
-    <div class="bank-card"><h3>💳 Banking Details</h3>Bank: TymeBank<br/>Account Number: 5101 9247 923<br/>Account Type: Cheque</div>
+
+    <div class="bank-card">
+      <h3>💳 Banking Details</h3>
+      Bank: TymeBank<br/>
+      Account Number: 5101 9247 923<br/>
+      Account Type: Cheque
+    </div>
   </section>
 
   <footer><p>&copy; 2025 Kanama Herds. All Rights Reserved.</p></footer>
-  <a href="https://wa.me/27614548601?text=Hi%20Kanama%20Herds" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" /></a>
+
+  <!-- Updated floating WhatsApp button (friendly, multi-line) -->
+  <a href="https://wa.me/27614548601?text=Hello%20Kanama%20Herds!%0A%0AI'd%20like%20to%20know%20more%20about%20your%20cattle%20and%20services." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+
   <script>
     function toggleDrawer(){
       document.getElementById('sideDrawer').classList.toggle('active');
