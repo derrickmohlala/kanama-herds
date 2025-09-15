@@ -39,13 +39,34 @@
     }
 
     /* Navigation */
-    nav{background:var(--green);padding:20px 12px;position:sticky;top:0;z-index:1100;}
+    nav {
+      background: var(--green);
+      padding: 12px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1100;
+    }
     nav .nav-inner{max-width:1100px;margin:0 auto;position:relative;display:flex;align-items:center;justify-content:center;}
     nav .nav-links{display:flex;justify-content:center;gap:20px;}
     nav a{color:#fff;text-decoration:none;font-weight:600;}
     nav a:hover{text-decoration:underline;}
-    .logo{position:absolute;left:0;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;}
-    .logo img{height:50px;display:block;}
+    .logo {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      border-radius: 50%;  /* circle */
+      display: block;
+    }
 
     /* Hamburger */
     .hamburger{display:none;flex-direction:row;align-items:center;cursor:pointer;position:absolute;right:0;top:50%;transform:translateY(-50%);gap:8px;padding-right:6px;}
@@ -168,8 +189,8 @@
   <!-- Animated banner -->
   <div class="banner">
   <span>
-    🎉 Get 10% Off Your First Order! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    🎉 Get 10% Off Your First Order! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    🎉 Get 10% Off Your First Order! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    🎉 Get 10% Off Your First Order! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     🎉 Get 10% Off Your First Order!
   </span>
   </div>
